@@ -58,9 +58,11 @@ endif
 TARGET_VNDK_USE_CORE_VARIANT := true
 
 # Inherit device/qcom/common, QCOM core-utils and exclude QCOM SEPolicy
+ifeq ($(INCLUDE_QTI_COMPONENTS), true)
 TARGET_EXCLUDE_QCOM_SEPOLICY := true
 $(call inherit-product, device/qcom/common/common.mk)
 include vendor/qcom/opensource/core-utils/build/utils.mk
+endif
 
 # Use a generic profile based boot image by default
 PRODUCT_USE_PROFILE_FOR_BOOT_IMAGE := true
