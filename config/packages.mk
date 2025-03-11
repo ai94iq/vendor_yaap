@@ -101,6 +101,7 @@ PRODUCT_PACKAGES += \
     SimpleDeviceConfig
 
 # Telephony - CLO
+ifneq ($(TARGET_IS_TABLET), true)
 PRODUCT_PACKAGES += \
     extphonelib \
     extphonelib-product \
@@ -118,7 +119,10 @@ PRODUCT_PACKAGES += \
     qti-telephony-utils-prd \
     qti_telephony_utils.xml \
     qti_telephony_utils_prd.xml
+endinf
 
+ifneq ($(TARGET_IS_TABLET), true)
 PRODUCT_BOOT_JARS += \
     tcmiface \
     telephony-ext
+endif
